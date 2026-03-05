@@ -37,20 +37,25 @@ export default function Contact() {
 
           {/* Partners */}
           <p className="text-sm font-light text-text-muted">
-            In partnership with{' '}
-            {siteData.partners.map((p, i) => (
-              <span key={p.url}>
-                {i > 0 && ' & '}
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-text-white transition-colors hover:text-accent"
-                >
-                  {p.dba ?? p.name}
-                </a>
-              </span>
-            ))}
+            A{' '}
+            <a
+              href={siteData.partners[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-white transition-colors hover:text-accent"
+            >
+              SWELL
+            </a>
+            {' & '}
+            <a
+              href={siteData.partners[1].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-white transition-colors hover:text-accent"
+            >
+              S77
+            </a>
+            {' '}partner
           </p>
         </motion.div>
       </div>

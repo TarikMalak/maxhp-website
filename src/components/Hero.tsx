@@ -27,7 +27,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: easeSmooth, delay: 0.3 }}
-          className="mb-6 text-5xl font-extralight tracking-tight text-text-white md:text-7xl"
+          className="mb-6 text-4xl font-extralight tracking-tight text-text-white md:text-5xl"
         >
           {hero.headlineLine1}
           <br />
@@ -39,7 +39,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: easeSmooth, delay: 0.5 }}
-          className="mx-auto max-w-2xl text-lg font-light leading-relaxed text-text-muted md:text-xl"
+          className="mx-auto max-w-2xl text-base font-light leading-relaxed text-text-muted md:text-lg"
         >
           {hero.subtitle}
         </motion.p>
