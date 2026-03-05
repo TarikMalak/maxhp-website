@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
+/* ============================================
+   Max HP Productions — Design Tokens & Global Styles
+   ============================================ */
+
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #171717;
+  /* Colors */
+  --color-bg-dark: #0A0A0A;
+  --color-bg-light: #F5F5F0;
+  --color-accent: #C9A962;
+  --color-accent-hover: #B89852;
+  --color-text-white: #FAFAFA;
+  --color-text-dark: #1A1A1A;
+  --color-text-muted: #737373;
+  --color-text-muted-dark: #999;
+
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Animation */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: #0A0A0A;
+  color: #FAFAFA;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Selection */
+::selection {
+  background: #C9A962;
+  color: #0A0A0A;
 }
 
-.animate-fade-in {
-  animation: fade-in 1s ease-out both;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A962;
 }

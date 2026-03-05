@@ -1,13 +1,21 @@
+import Hero from '@/components/Hero';
+import Capabilities from '@/components/Capabilities';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+import { OrganizationJsonLd, WebSiteJsonLd, ServiceJsonLd } from '@/components/JsonLd';
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-white">
-      <div className="animate-fade-in px-8">
-        <img
-          src="/logo.png"
-          alt="Max HP Productions"
-          className="w-[min(80vw,500px)]"
-        />
-      </div>
-    </main>
+    <>
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
+      <ServiceJsonLd />
+      <main>
+        <Hero />
+        <Capabilities />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
