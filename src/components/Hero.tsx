@@ -18,7 +18,7 @@ export default function Hero() {
           <img
             src="/logo.png"
             alt="Max HP Productions"
-            className="mx-auto w-[min(60vw,350px)]"
+            className="mx-auto w-[min(60vw,350px)] invert"
           />
         </motion.div>
 

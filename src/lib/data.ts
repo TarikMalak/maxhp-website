@@ -4,22 +4,27 @@
 
 export const siteData = {
   name: 'Max HP Productions',
-  tagline: "SWELL's Production & Post-Production Division",
+  legalName: 'Max HP Productions LLC',
+  tagline: 'Premium Production & Post-Production — NYC',
   description:
-    'Max HP Productions is the dedicated production and post-production arm of SWELL, delivering premium broadcast-level results with lean teams, senior talent, and AI-assisted workflows for fashion, beauty, luxury, and lifestyle brands.',
+    'Max HP Productions delivers premium broadcast-level production and post-production with lean teams, senior talent, and AI-assisted workflows for fashion, beauty, luxury, and lifestyle brands.',
   url: 'https://maxhpprod.com',
   email: 'hello@maxhpprod.com',
   address: '6 St Johns Ln, New York, NY 10013',
   phone: '(646) 389-1570',
-  parentCompany: {
-    name: 'SWELL Labs, LLC',
-    dba: 'SWELL',
-    url: 'https://swellny.com',
-  },
-  sisterCompany: {
-    name: 'S77.AI',
-    url: 'https://s77.ai',
-  },
+  partners: [
+    {
+      name: 'SWELL Labs, LLC',
+      dba: 'SWELL',
+      url: 'https://swellny.com',
+      label: 'swellny.com',
+    },
+    {
+      name: 'S77.AI',
+      url: 'https://s77.ai',
+      label: 's77.ai',
+    },
+  ],
 };
 
 export const hero = {

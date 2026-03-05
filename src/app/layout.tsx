@@ -9,15 +9,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Max HP Productions | Production & Post by SWELL — NYC',
+  title: 'Max HP Productions | Premium Production & Post — NYC',
   description:
-    'Max HP Productions is the dedicated production and post-production arm of SWELL, delivering premium broadcast-level results with lean teams, senior talent, and AI-assisted workflows for fashion, beauty, luxury, and lifestyle brands.',
+    'Max HP Productions delivers premium broadcast-level production and post-production with lean teams, senior talent, and AI-assisted workflows for fashion, beauty, luxury, and lifestyle brands.',
   metadataBase: new URL('https://maxhpprod.com'),
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Max HP Productions | Production & Post by SWELL',
+    title: 'Max HP Productions | Premium Production & Post — NYC',
     description:
-      'Premium production and post-production with lean teams, senior talent, and AI-assisted workflows. A division of SWELL Labs, LLC.',
+      'Premium production and post-production with lean teams, senior talent, and AI-assisted workflows for fashion, beauty, luxury, and lifestyle brands.',
     url: 'https://maxhpprod.com',
     siteName: 'Max HP Productions',
     locale: 'en_US',
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@swellny',
     creator: '@swellny',
-    title: 'Max HP Productions | Production & Post by SWELL',
+    title: 'Max HP Productions | Premium Production & Post — NYC',
     description:
-      'Premium production and post-production for fashion, beauty, luxury, and lifestyle brands.',
+      'Premium production and post-production with lean teams, senior talent, and AI-assisted workflows.',
   },
   robots: { index: true, follow: true },
   other: {

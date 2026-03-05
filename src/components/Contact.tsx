@@ -35,17 +35,22 @@ export default function Contact() {
             {siteData.address}
           </p>
 
-          {/* Parent company */}
+          {/* Partners */}
           <p className="text-sm font-light text-text-muted">
-            A division of{' '}
-            <a
-              href={siteData.parentCompany.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-white transition-colors hover:text-accent"
-            >
-              {siteData.parentCompany.name}
-            </a>
+            In partnership with{' '}
+            {siteData.partners.map((p, i) => (
+              <span key={p.url}>
+                {i > 0 && ' & '}
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-white transition-colors hover:text-accent"
+                >
+                  {p.dba ?? p.name}
+                </a>
+              </span>
+            ))}
           </p>
         </motion.div>
       </div>

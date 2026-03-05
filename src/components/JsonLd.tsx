@@ -11,6 +11,7 @@ export function OrganizationJsonLd() {
     url: 'https://maxhpprod.com',
     logo: 'https://maxhpprod.com/logo.png',
     image: 'https://maxhpprod.com/logo.png',
+    legalName: siteData.legalName,
     description: siteData.description,
     address: {
       '@type': 'PostalAddress',
@@ -27,17 +28,7 @@ export function OrganizationJsonLd() {
     },
     telephone: '+1-646-389-1570',
     email: siteData.email,
-    parentOrganization: {
-      '@type': 'Organization',
-      '@id': 'https://swellny.com/#organization',
-      name: 'SWELL',
-      legalName: 'SWELL Labs, LLC',
-      url: 'https://swellny.com',
-    },
-    sameAs: [
-      'https://swellny.com',
-      'https://s77.ai',
-    ],
+    sameAs: siteData.partners.map((p) => p.url),
     areaServed: 'Worldwide',
     knowsAbout: [
       'Video Production',

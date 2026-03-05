@@ -10,30 +10,26 @@ export default function Footer() {
         <img
           src="/logo.png"
           alt="Max HP Productions"
-          className="h-8 w-auto"
+          className="h-8 w-auto invert"
         />
 
         {/* Copyright + links */}
         <p className="text-xs font-light text-text-muted">
-          &copy; {year} {siteData.parentCompany.name}. All rights reserved.
-          {' '}
-          <a
-            href={siteData.parentCompany.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-text-white"
-          >
-            swellny.com
-          </a>
+          &copy; {year} {siteData.legalName}. All rights reserved.
           {' | '}
-          <a
-            href={siteData.sisterCompany.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-text-white"
-          >
-            s77.ai
-          </a>
+          {siteData.partners.map((p, i) => (
+            <span key={p.url}>
+              {i > 0 && ' | '}
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-text-white"
+              >
+                {p.label}
+              </a>
+            </span>
+          ))}
         </p>
       </div>
     </footer>
