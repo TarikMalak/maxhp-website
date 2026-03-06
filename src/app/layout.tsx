@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     'Max HP Productions delivers premium broadcast-level production and post-production with lean teams, senior talent, and AI-assisted workflows for fashion, beauty, luxury, and lifestyle brands.',
   metadataBase: new URL('https://maxhpprod.com'),
   alternates: { canonical: '/' },
+  icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Max HP Productions | Premium Production & Post — NYC',
     description:
@@ -40,6 +42,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <link rel="llms-txt" href="https://maxhpprod.com/llms.txt" />
         <link rel="llms-txt-full" href="https://maxhpprod.com/llms-full.txt" />
+        <link rel="dns-prefetch" href="https://swellny.com" />
+        <link rel="dns-prefetch" href="https://s77.ai" />
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}
