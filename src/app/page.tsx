@@ -1,3 +1,4 @@
+import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import Capabilities from '@/components/Capabilities';
 import Contact from '@/components/Contact';
@@ -17,6 +18,7 @@ export default async function Home() {
       <OrganizationJsonLd settings={settings} capabilities={capabilities} />
       <WebSiteJsonLd settings={settings} />
       <ServiceJsonLd capabilities={capabilities} />
+      <Nav />
       <main>
         <Hero data={hero} />
         <Capabilities items={capabilities} />
