@@ -38,7 +38,12 @@ export default function Hero({ data }: { data: HeroSection }) {
           transition={{ duration: 1, ease: easeSmooth, delay: 0.5 }}
           className="mx-auto max-w-xl text-sm font-light leading-relaxed text-text-muted md:text-base"
         >
-          {data.subtitle}
+          {data.subtitle.split('\n').map((line, i, arr) => (
+            <span key={i}>
+              {line}
+              {i < arr.length - 1 && <br />}
+            </span>
+          ))}
         </motion.p>
       </div>
     </section>

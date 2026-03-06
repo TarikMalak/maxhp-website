@@ -40,7 +40,14 @@ export default function Capabilities({ items }: { items: Capability[] }) {
               <div>
                 <h3 className="mb-2 text-2xl font-light text-text-dark md:text-3xl">{cap.title}</h3>
                 <p className="mb-4 text-base font-medium text-accent">{cap.subtitle}</p>
-                <p className="max-w-2xl text-base font-light leading-relaxed text-text-muted">{cap.description}</p>
+                <p className="max-w-2xl text-base font-light leading-relaxed text-text-muted">
+                  {cap.description.split('\n').map((line, i, arr) => (
+                    <span key={i}>
+                      {line}
+                      {i < arr.length - 1 && <br />}
+                    </span>
+                  ))}
+                </p>
               </div>
             </motion.article>
           ))}
