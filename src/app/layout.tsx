@@ -22,38 +22,25 @@ export const metadata: Metadata = {
     siteName: 'Max HP Productions',
     locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Max HP Productions — Production + Post',
-      },
-    ],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Max HP Productions — Production + Post' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@swellny',
     creator: '@swellny',
     title: 'Max HP Productions | Premium Production & Post — NYC',
-    description:
-      'Premium production and post-production with lean teams, senior talent, and AI-assisted workflows.',
+    description: 'Premium production and post-production with lean teams, senior talent, and AI-assisted workflows.',
   },
   robots: { index: true, follow: true },
-  other: {
-    'theme-color': '#C9A962',
-  },
+  other: { 'theme-color': '#C9A962' },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
-        <link rel="llms-txt" href="/llms.txt" />
+        <link rel="llms-txt" href="https://maxhpprod.com/llms.txt" />
+        <link rel="llms-txt-full" href="https://maxhpprod.com/llms-full.txt" />
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}

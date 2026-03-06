@@ -3,19 +3,26 @@ import Capabilities from '@/components/Capabilities';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { OrganizationJsonLd, WebSiteJsonLd, ServiceJsonLd } from '@/components/JsonLd';
+import { getSiteSettings, getHero, getCapabilities } from '@/lib/api';
 
-export default function Home() {
+export default async function Home() {
+  const [settings, hero, capabilities] = await Promise.all([
+    getSiteSettings(),
+    getHero(),
+    getCapabilities(),
+  ]);
+
   return (
     <>
-      <OrganizationJsonLd />
-      <WebSiteJsonLd />
-      <ServiceJsonLd />
+      <OrganizationJsonLd settings={settings} capabilities={capabilities} />
+      <WebSiteJsonLd settings={settings} />
+      <ServiceJsonLd capabilities={capabilities} />
       <main>
-        <Hero />
-        <Capabilities />
-        <Contact />
+        <Hero data={hero} />
+        <Capabilities items={capabilities} />
+        <Contact settings={settings} />
       </main>
-      <Footer />
+      <Footer settings={settings} />
     </>
   );
 }

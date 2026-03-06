@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { easeSmooth } from '@/lib/motion';
-import { siteData } from '@/lib/data';
+import type { SiteSettings } from '@/lib/types';
 
-export default function Contact() {
+export default function Contact({ settings }: { settings: SiteSettings }) {
   return (
     <section id="contact" className="bg-bg-dark py-32 md:py-48">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
@@ -22,39 +22,25 @@ export default function Contact() {
             Let&rsquo;s make something.
           </h2>
 
-          {/* Email */}
           <a
-            href={`mailto:${siteData.email}`}
+            href={`mailto:${settings.email}`}
             className="mb-8 inline-block text-2xl font-light text-text-white transition-colors hover:text-accent md:text-3xl"
           >
-            {siteData.email}
+            {settings.email}
           </a>
 
-          {/* Address */}
-          <p className="mb-2 text-sm font-light text-text-muted">
-            {siteData.address}
-          </p>
+          <p className="mb-2 text-sm font-light text-text-muted">{settings.address}</p>
 
-          {/* Partners */}
           <p className="text-sm font-light text-text-muted">
             A{' '}
-            <a
-              href={siteData.partners[0].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-white transition-colors hover:text-accent"
-            >
-              SWELL
-            </a>
-            {' & '}
-            <a
-              href={siteData.partners[1].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-white transition-colors hover:text-accent"
-            >
-              S77
-            </a>
+            {settings.partners.map((p, i) => (
+              <span key={p.url}>
+                {i > 0 && ' & '}
+                <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-text-white transition-colors hover:text-accent">
+                  {p.dba || p.name}
+                </a>
+              </span>
+            ))}
             {' '}partner
           </p>
         </motion.div>

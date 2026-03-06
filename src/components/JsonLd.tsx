@@ -1,18 +1,16 @@
-// JSON-LD structured data for Max HP Productions
+import type { SiteSettings, Capability } from '@/lib/types';
 
-import { siteData, capabilities } from '@/lib/data';
-
-export function OrganizationJsonLd() {
+export function OrganizationJsonLd({ settings, capabilities }: { settings: SiteSettings; capabilities: Capability[] }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://maxhpprod.com/#organization',
-    name: 'Max HP Productions',
-    url: 'https://maxhpprod.com',
+    name: settings.name,
+    url: settings.url,
     logo: 'https://maxhpprod.com/logo.png',
     image: 'https://maxhpprod.com/logo.png',
-    legalName: siteData.legalName,
-    description: siteData.description,
+    legalName: settings.legal_name,
+    description: settings.description,
     address: {
       '@type': 'PostalAddress',
       streetAddress: '6 St Johns Ln',
@@ -21,68 +19,44 @@ export function OrganizationJsonLd() {
       postalCode: '10013',
       addressCountry: 'US',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 40.7237,
-      longitude: -74.0059,
-    },
+    geo: { '@type': 'GeoCoordinates', latitude: 40.7237, longitude: -74.0059 },
     telephone: '+1-646-389-1570',
-    email: siteData.email,
-    sameAs: siteData.partners.map((p) => p.url),
+    email: settings.email,
+    sameAs: settings.partners.map((p) => p.url),
     areaServed: 'Worldwide',
     knowsAbout: [
-      'Video Production',
-      'Post-Production',
-      'Color Grading',
-      'Sound Design',
-      'Visual Effects',
-      'Motion Graphics',
-      'AI-Assisted Post-Production',
-      'Broadcast Commercials',
-      'Social Content Production',
+      'Video Production', 'Post-Production', 'Color Grading', 'Sound Design',
+      'Visual Effects', 'Motion Graphics', 'AI-Assisted Post-Production',
+      'Broadcast Commercials', 'Social Content Production',
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Max HP Productions Services',
+      name: `${settings.name} Services`,
       itemListElement: capabilities.map((c) => ({
         '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: c.title,
-          description: c.subtitle,
-        },
+        itemOffered: { '@type': 'Service', name: c.title, description: c.subtitle },
       })),
     },
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-export function WebSiteJsonLd() {
+export function WebSiteJsonLd({ settings }: { settings: SiteSettings }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': 'https://maxhpprod.com/#website',
-    name: 'Max HP Productions',
-    url: 'https://maxhpprod.com',
+    name: settings.site_name,
+    url: settings.url,
     inLanguage: 'en-US',
     publisher: { '@id': 'https://maxhpprod.com/#organization' },
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-export function ServiceJsonLd() {
+export function ServiceJsonLd({ capabilities }: { capabilities: Capability[] }) {
   const data = capabilities.map((c) => ({
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -92,10 +66,5 @@ export function ServiceJsonLd() {
     areaServed: 'Worldwide',
   }));
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }

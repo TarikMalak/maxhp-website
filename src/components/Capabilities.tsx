@@ -2,13 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { easeSmooth } from '@/lib/motion';
-import { capabilities } from '@/lib/data';
+import type { Capability } from '@/lib/types';
 
-export default function Capabilities() {
+export default function Capabilities({ items }: { items: Capability[] }) {
   return (
     <section id="capabilities" className="bg-bg-light py-32 md:py-48">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,34 +23,24 @@ export default function Capabilities() {
           </h2>
         </motion.div>
 
-        {/* Capability items */}
         <div className="space-y-24">
-          {capabilities.map((cap, i) => (
+          {items.map((cap, i) => (
             <motion.article
               key={cap.id}
-              id={cap.id}
+              id={cap.title.toLowerCase().replace(/\s+/g, '-')}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, ease: easeSmooth, delay: i * 0.1 }}
               className="grid gap-8 md:grid-cols-[120px_1fr]"
             >
-              {/* Number */}
               <div className="text-6xl font-extralight text-accent/40 md:text-7xl">
-                {cap.number}
+                {String(cap.sort_order).padStart(2, '0')}
               </div>
-
-              {/* Content */}
               <div>
-                <h3 className="mb-2 text-2xl font-light text-text-dark md:text-3xl">
-                  {cap.title}
-                </h3>
-                <p className="mb-4 text-base font-medium text-accent">
-                  {cap.subtitle}
-                </p>
-                <p className="max-w-2xl text-base font-light leading-relaxed text-text-muted">
-                  {cap.description}
-                </p>
+                <h3 className="mb-2 text-2xl font-light text-text-dark md:text-3xl">{cap.title}</h3>
+                <p className="mb-4 text-base font-medium text-accent">{cap.subtitle}</p>
+                <p className="max-w-2xl text-base font-light leading-relaxed text-text-muted">{cap.description}</p>
               </div>
             </motion.article>
           ))}

@@ -1,6 +1,7 @@
 export async function GET() {
   const body = `User-agent: *
 Allow: /
+Disallow: /admin
 
 User-agent: GPTBot
 Allow: /
@@ -22,6 +23,7 @@ Allow: /
 
 Sitemap: https://maxhpprod.com/sitemap.xml
 LLMs: https://maxhpprod.com/llms.txt
+LLMs-Full: https://maxhpprod.com/llms-full.txt
 `;
 
   return new Response(body, {
